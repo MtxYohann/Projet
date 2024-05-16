@@ -2,27 +2,25 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState, useEffect } from 'react'
-
 import AddCarForm from "@/composant/addCar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-  export default function App() {
-    const [carList, setCarList] = useState([])
-    
-    
-    const fetchData = () => {
-      fetch('/api/hello')
-      .then((response)=> response.json())
-      .then((data)=>{
-        setCarList(data);
-        // console.log("data", data)
-      })
-      .catch((error)=> console.log("erreur",error))
-    }
-     useEffect(() => {
-    fetchData();
+export default function App() {
+  const [carList, setCarList] = useState([])
+  
+  
+  const fetchData = () => {
+    fetch('/api/hello')
+    .then((response)=> response.json())
+    .then((data)=>{
+      setCarList(data);
+      // console.log("data", data)
+    })
+    .catch((error)=> console.log("erreur",error))
+  }
+    useEffect(() => {
+  fetchData();
   }, []);
 
   const handleCarAdded = (newCar) => {
@@ -30,9 +28,6 @@ const inter = Inter({ subsets: ["latin"] });
   };
   
   if (carList.length !== 0 ){
-  
-    
-    
 
     console.log("data",carList[2].marque)
     return (
@@ -43,26 +38,27 @@ const inter = Inter({ subsets: ["latin"] });
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>       
-        <main className={`${styles.main} ${inter.className} ${styles.car}`}>
+        <main className={`${styles.main} ${inter.className} ${styles.car} ${styles.add} `}>
         
-       
-    
+        
+          <h1>Ajouter une super voiture</h1>
+          <AddCarForm onCarAdded={handleCarAdded} />
           <h2>liste de voiture</h2>
           {carList.length > 0 ? (
           carList.map((car, index) => (
             <div key={index}>
-             <a>Marque : {car.marque}<br/> Model :{car.model}</a> 
+              <a>Marque : {car.marque}<br/> Model :{car.model}</a> 
 
             </div>
           ))
         ) : (
           <p>Chargement de la liste de voiture...</p>
         )}
-        <AddCarForm onCarAdded={handleCarAdded} />
+        
         </main>
       </>
       );
-    }
-    }
+  }
+}
     //merge 
   

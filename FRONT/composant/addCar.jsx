@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from "@/styles/Home.module.css";
 
 
 export default function AddCarForm({ onCarAdded }) {
@@ -35,49 +36,55 @@ export default function AddCarForm({ onCarAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.add}>
+      <label>Marque de la voiture :</label><br/>
       <input 
         type="text" 
         value={marque} 
         onChange={(e) => setMarque(e.target.value)} 
-        placeholder="Marque de la voiture" 
+        placeholder="BMW, Audi ..." 
         required 
-      />
+      /><br/>
+      <label>Modèle de la voiture :</label><br/>
       <input 
         type="text" 
         value={model} 
         onChange={(e) => setModel(e.target.value)} 
-        placeholder="Modèle de la voiture" 
+        placeholder="RS3, e46, c4 ..." 
         required 
-      />
+      /><br/>
+      <label>Cylindrée :</label><br/>
       <input 
         type="text" 
         value={Cylindree} 
         onChange={(e) => setCylindree(e.target.value)} 
         placeholder="Cylindrée" 
         required 
-      />
+      /><br/>
+      <label>Position du moteur :</label><br/>
       <input 
         type="text" 
         value={Position_moteur} 
         onChange={(e) => setPositionMoteur(e.target.value)} 
-        placeholder="Position du moteur" 
+        placeholder="avant, arrière" 
         required 
-      />
+      /><br/>
+      <label>architecture du moteur :</label><br/>
       <input 
         type="text" 
         value={Architechture_moteur} 
         onChange={(e) => setArchitectureMoteur(e.target.value)} 
         placeholder="Architecture du moteur" 
         required 
-      />
+      /><br/>
+      <label>Poids :</label><br/>
       <input 
         type="number" 
         value={Poid} 
         onChange={(e) => setPoid(e.target.value)} 
-        placeholder="Poids" 
+        placeholder="1500" 
         required 
-      />
+      /><br/>
       <button type="submit">Ajouter Voiture</button>
     </form>
   );
