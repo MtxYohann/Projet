@@ -3,7 +3,10 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState, useEffect } from 'react'
 
+import AddCarForm from "@/composant/addCar";
+
 const inter = Inter({ subsets: ["latin"] });
+
 
   export default function App() {
     const [carList, setCarList] = useState([])
@@ -50,6 +53,7 @@ const inter = Inter({ subsets: ["latin"] });
         ) : (
           <p>Chargement de la liste de voiture...</p>
         )}
+        <AddCarForm onCarAdded={handleCarAdded} />
         </main>
       </>
       );
