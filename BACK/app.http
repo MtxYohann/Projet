@@ -1,0 +1,57 @@
+GET http://localhost:3001
+
+###
+
+GET http://localhost:3000/cars/66150319d91641b715a13630
+###
+
+GET http://localhost:3000/cars/
+
+###
+POST http://localhost:3000/cars
+Content-Type: application/json
+
+{
+    "marque": "BMW",
+    "model": "M3 E46 test",
+    "Cylindree" :"3.2L",
+    "Position_moteur": "avant", 
+    "Architechture_moteur": "6 cylindre en ligne",
+    "Poid": "1300"
+}
+
+###
+DELETE http://localhost:3000/cars/6615166ec9b2fad15e16fd51
+###
+PUT http://localhost:3000/cars/66151667c9b2fad15e16fd4f
+Content-Type: application/json
+
+{
+    "marque": "BMW",
+    "model": "M3 E46",
+    "Cylindree" :"3.2L",
+    "Position_moteur": "avant", 
+    "Architechture_moteur": "6 cylindre en ligne",
+    "Poid": "1300"
+}
+
+###
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "maxime",
+    "password": "maxime"
+}
+
+###
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "albert@gmail.com",
+    "password": "J4kkj!dhsjdsHJdd",
+    "name": "maxime",
+    "phoneNumber": "123456789"
+}
