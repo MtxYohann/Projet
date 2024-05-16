@@ -6,7 +6,7 @@ import fileRoutes from "./file.js";
 
 const router = Router();
 
-router.use("/cars", isAuth, carsRoutes);
+router.use("/cars", carsRoutes);
 router.use("/auth", authRoutes);
 router.use("/file",fileRoutes)
 

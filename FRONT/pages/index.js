@@ -1,11 +1,35 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ["latin"] });
 
 
-export default function Home() {
+
+
+  export default function App() {
+    const [carList, setCarList] = useState([])
+    
+    
+    const fetchData = () => {
+      fetch('/api/hello')
+      .then((response)=> response.json())
+      .then((data)=>{
+        setCarList(data);
+        // console.log("data", data)
+      })
+      .catch((error)=> console.log("erreur",error))
+    }
+     useEffect(() => {
+    fetchData();
+  }, []);
+  
+  if (carList.length !== 0 ){
+    
+    
+
+    console.log("data",carList[2].marque)
     return (
       <>
         <Head>
@@ -16,8 +40,22 @@ export default function Home() {
         </Head>       
         <main className={`${styles.main} ${inter.className} `}>
         
+       
+    
+          <h2>liste de voiture</h2>
+          {carList.length > 0 ? (
+          carList.map((car, index) => (
+            <div key={index}>
+             <h3>Marque : {car.marque} Model :{car.model}</h3> 
+
+            </div>
+          ))
+        ) : (
+          <p>Chargement de la liste de voiture...</p>
+        )}
         </main>
       </>
-    );
-  }
+      );
+    }
+    }
   
