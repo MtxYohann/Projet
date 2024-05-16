@@ -24,8 +24,13 @@ const inter = Inter({ subsets: ["latin"] });
      useEffect(() => {
     fetchData();
   }, []);
+
+  const handleCarAdded = (newCar) => {
+    setCarList((prevCarList) => [...prevCarList, newCar]);
+  };
   
   if (carList.length !== 0 ){
+  
     
     
 
