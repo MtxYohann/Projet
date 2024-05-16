@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState, useEffect } from 'react'
+import AddCarForm from "@/composant/addCar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,11 @@ const inter = Inter({ subsets: ["latin"] });
      useEffect(() => {
     fetchData();
   }, []);
+
+  const handleCarAdded = (newCar) => {
+    setCarList((prevCarList) => [...prevCarList, newCar]);
+  };
+
   
   if (carList.length !== 0 ){
     
@@ -53,6 +59,7 @@ const inter = Inter({ subsets: ["latin"] });
         ) : (
           <p>Chargement de la liste de voiture...</p>
         )}
+        <AddCarForm onCarAdded={handleCarAdded} />
         </main>
       </>
       );
