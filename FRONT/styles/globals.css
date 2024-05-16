@@ -43,15 +43,15 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 50, 60, 130;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 1, 1, 83;
+    --background-end-rgb: 0, 0, 38;
 
     --primary-glow: radial-gradient(rgb(113, 23, 23), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
       to bottom right,
       rgba(1, 65, 255, 0),
       rgba(1, 65, 255, 0),
-      rgb(253, 0, 0)
+      rgb(28, 28, 58)
     );
 
     --tile-start-rgb: 2, 13, 46;

@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   padding: 6rem;
   min-height: 100vh;
 }
@@ -217,4 +217,18 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.car div {
+  height: auto;
+  width: 300px;
+  border-radius:25px;
+-moz-border-radius:25px;
+-webkit-border-radius:25px;
+  margin-top: 15px;
+  border-color: rgb(132, 132, 132);
+  background-color: black;
+  box-shadow: 10px 0px 10px 5px #000336 ;
+  text-align: center;
+  
 }

@@ -5,9 +5,6 @@ import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
-
   export default function App() {
     const [carList, setCarList] = useState([])
     
@@ -38,7 +35,7 @@ const inter = Inter({ subsets: ["latin"] });
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>       
-        <main className={`${styles.main} ${inter.className} `}>
+        <main className={`${styles.main} ${inter.className} ${styles.car}`}>
         
        
     
@@ -46,7 +43,7 @@ const inter = Inter({ subsets: ["latin"] });
           {carList.length > 0 ? (
           carList.map((car, index) => (
             <div key={index}>
-             <h3>Marque : {car.marque} Model :{car.model}</h3> 
+             <a>Marque : {car.marque}<br/> Model :{car.model}</a> 
 
             </div>
           ))
